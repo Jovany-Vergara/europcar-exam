@@ -14,6 +14,12 @@ box-shadow: 2px 2px 5px #989191;
   background: #3fb7de;
   color: white;
 }
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
 
 .line-vertical {
   display: inline-block;
