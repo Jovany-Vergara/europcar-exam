@@ -59,7 +59,7 @@
           <h5><a class="text-white" href="">OFICINAS PRINCIPALES</a></h5>
           <button type="button" class="btn background-card-title text-white justify-content-md-end">Continuar</button>
         </div>
-        <div v-if="appData.fetchError">
+        <div class="alert alert-danger mt-5 d-flex justify-content-center" v-if="appData.fetchError">
           {{ appData.messageError }}
         </div>
       </div>
