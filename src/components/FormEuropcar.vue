@@ -11,10 +11,8 @@
             <label for="floatingSelectGrid">OFICINA DE ENTREGA</label>
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                <option selected></option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option selected>Selecciona una opción</option>
+                <option v-for="element in appData.listStations" :value="element.StationId" :key="element.StationId">{{ element.StationName }}</option>
               </select>
             </div>
             <div class="row g-2 pt-5">
@@ -36,10 +34,8 @@
             <label for="floatingSelectGrid">OFICINA DE DEVOLUCIÓN</label>
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                <option selected></option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option selected>Selecciona una opción</option>
+                <option v-for="element in appData.listStations" :value="element.StationId" :key="element.StationId">{{ element.StationName }}</option>
               </select>
             </div>
             <div class="row g-2 pt-5">
@@ -63,6 +59,9 @@
           <h5><a class="text-white" href="">OFICINAS PRINCIPALES</a></h5>
           <button type="button" class="btn background-card-title text-white justify-content-md-end">Continuar</button>
         </div>
+        <div v-if="appData.fetchError">
+          {{ appData.messageError }}
+        </div>
       </div>
     </div>
   </div>
@@ -72,13 +71,34 @@
 </template>
 
 <script>
-  export default {
-    name: "FormEuropcar",
-    setup() {
-      const title = "Hola mundo";
-      return {
-        title,
+import { login } from '../services/AuthService';
+import { getStationList } from '../services/StationService';
+import { onMounted, reactive } from 'vue';
+export default {
+  name: "FormEuropcar",
+  setup() {
+    const title = "Hola mundo";
+    const appData = reactive({
+      listStations: [],
+      fetchError: false,
+      messageError: ''
+    })
+    onMounted(async () => {
+      try {
+        const result = await login('0123456789', '0123456789');
+        const { SessionId } = result.data
+        const response = await getStationList(SessionId)
+        appData.listStations = response.data;
+      } catch (error) {
+        console.error("ErrorApi", error);
+        appData.fetchError = true;
+        appData.messageError = "A ocurrido un error al obtener la información"
       }
-    },
-  };
+    })
+    return {
+      title,
+      appData,
+    }
+  },
+};
 </script>
