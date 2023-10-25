@@ -3,9 +3,21 @@ box-shadow: 2px 2px 5px #989191;
 }
 
 .background-card-title{
-  background: #029bcc;
+  background: #029bcc !important;
 }
 
 .background-card{
   background: #24ccff;
+}
+
+.footer-euripcar{
+  background: #3fb7de;
+  color: white;
+}
+
+.line-vertical {
+  display: inline-block;
+  border-right: 1px solid #ffffff;
+  height: 72px;
+  margin: 1%;
 }
