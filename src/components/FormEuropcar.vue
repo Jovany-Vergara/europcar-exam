@@ -1,13 +1,16 @@
 <template>
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-      Bootstrap
-    </a>
+  <div class="pt-5 d-flex justify-content-center">
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
   </div>
-</nav>
-  
 </template>
 
 <script>
