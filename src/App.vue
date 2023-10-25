@@ -21,7 +21,7 @@
           </li>
         </ul>
       </div>
-      <img src="/src/assets/img/autoclick.jpeg" alt="" width="40" height="40" class="d-inline-block align-text-top">
+      <img src="/src/assets/img/europcar-logo.png" alt="" width="100" height="40" class="d-inline-block align-text-top">
       <img src="/src/assets/img/llamada.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
     </div>
   </nav>
